@@ -1,9 +1,11 @@
 # BÁO CÁO THỰC HÀNH CẤU TRÚC DỮ LIỆU VÀ GIẢI THUẬT
 ## ĐIỀU PHỐI GIAO ĐƠN TRONG KHUÔN VIÊN TRƯỜNG BẰNG JULIA
 
+- **Mã số sinh viên (MSSV):** `N24DCDT051`
 - **Ngày thực hành:** 09/10/2026
 - **Ngôn ngữ & Môi trường:** Julia 1.12.7 (Base, không dùng thư viện ngoài)
-- **Tập dữ liệu mẫu:** `MINI001` (Ngân sách thời gian $B = 8$)
+- **Tập dữ liệu chuẩn:** `MINI001` (Ngân sách thời gian $B = 8$)
+- **Tập dữ liệu cá nhân hóa:** `N24DCDT051` (10 đơn hàng, Ngân sách $B = 26$)
 - **Phiên bản mã nguồn:** Hoàn thiện toàn bộ 4 hàm cốt lõi trong [TH_2026_10_09_Sinh_vien.jl](file:///d:/DOWNLOAD/Bo_Thuc_hanh_Julia_2026_10_09_Sinh_vien/TH_2026_10_09_Sinh_vien.jl)
 
 ---
@@ -271,3 +273,43 @@ Kết quả thực thi toàn bộ kiểm thử tự động với lệnh `julia 
   - **Vì sao không thể khẳng định mọi BST đều tra cứu trong $O(\log n)$?**
     - Chi phí tìm kiếm trên cây tìm kiếm nhị phân (BST) phụ thuộc trực tiếp vào **chiều cao của cây $h$**, tức là $O(h)$.
     - Chiều cao $h = O(\log n)$ chỉ đạt được khi cây ở trạng thái cân bằng. Với một BST thông thường (không có cơ chế tự cân bằng), nếu các khóa được chèn vào theo thứ tự đã sắp xếp tăng dần hoặc giảm dần, cây sẽ bị suy biến hoàn toàn thành một danh sách liên kết tuyến tính. Khi đó, chiều cao cây là $h = n$, và thời gian tra cứu trong trường hợp xấu nhất sẽ là $O(n)$.
+
+---
+
+## 9. Mở rộng Cá nhân hóa theo MSSV (`N24DCDT051`)
+
+### 9.1. Thông số Hồ sơ cá nhân
+- **MSSV:** `N24DCDT051`
+- **Số đơn hàng ($n$):** 10 đơn hàng
+- **Ngân sách thời gian ($B$):** 26 đơn vị
+- **Tập tin dữ liệu sinh ra:**
+  - `data/N24DCDT051/don_hang.csv`
+  - `data/N24DCDT051/ban_do.csv`
+
+### 9.2. Bảng dữ liệu 10 đơn hàng và Chi phí tính từ BFS
+| ID | Điểm giao | Thời gian phục vụ $s$ | Chi phí BFS $\tau$ | Lợi ích | Tuyến đường BFS | Trạng thái chọn |
+| :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **1** | 6 | 2 | 8 | 14 | $1 \to 3 \to 5 \to 6$ | **ĐƯỢC CHỌN** (Đã giao) |
+| **2** | 2 | 1 | 3 | 13 | $1 \to 2$ | **ĐƯỢC CHỌN** (Đã giao) |
+| **3** | 2 | 1 | 3 | 5 | $1 \to 2$ | Không chọn |
+| **4** | 4 | 2 | 6 | 3 | $1 \to 3 \to 4$ | Không chọn |
+| **5** | 6 | 2 | 8 | 8 | $1 \to 3 \to 5 \to 6$ | Không chọn |
+| **6** | 6 | 1 | 7 | 13 | $1 \to 3 \to 5 \to 6$ | **ĐƯỢC CHỌN** (Đã giao) |
+| **7** | 6 | 2 | 8 | 2 | $1 \to 3 \to 5 \to 6$ | Không chọn |
+| **8** | 5 | 3 | 7 | 11 | $1 \to 3 \to 5$ | **ĐƯỢC CHỌN** (Đã giao) |
+| **9** | 4 | 2 | 6 | 6 | $1 \to 3 \to 4$ | Không chọn |
+| **10** | 4 | 2 | 6 | 8 | $1 \to 3 \to 4$ | Không chọn |
+
+### 9.3. So sánh hiệu quả thuật toán trên tập dữ liệu `N24DCDT051`
+- **Quy hoạch động (DP):** Lợi ích tối ưu = **51**
+- **Vét cạn (Brute Force):** Lợi ích tối ưu = **51** (Trùng khớp 100% với DP)
+- **Tham lam (Greedy theo tỷ số):** Lợi ích = **45**
+
+> **Nhận xét quan trọng:**
+> Kết quả thực nghiệm trên MSSV `N24DCDT051` cho thấy rõ ràng:
+> - Thuật toán **Quy hoạch động** tìm được nghiệm tối ưu toàn cục (Lợi ích 51, tiêu tốn 25/26 ngân sách thời gian với 4 đơn `{2, 6, 1, 8}`), hoàn toàn trùng khớp với thuật toán vét cạn $2^{10} = 1024$ tập con.
+> - Thuật toán **Tham lam** (Greedy) chỉ đạt lợi ích 45 (bị mất 6 điểm lợi ích). Đây là minh chứng thực tế trên chính dữ liệu sinh viên cho thấy phương pháp tham lam cục bộ không đảm bảo tối ưu toàn cục cho bài toán Ba lô 0/1.
+
+### 9.4. Tệp kết quả xuất ra
+- Đường dẫn: `data/N24DCDT051/ket_qua.csv`
+- Đầy đủ 9 cột theo quy chuẩn, phản ánh chính xác trạng thái giao và tuyến đường của cả 10 đơn hàng.
