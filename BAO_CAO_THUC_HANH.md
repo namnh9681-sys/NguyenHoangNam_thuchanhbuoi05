@@ -1,7 +1,9 @@
 # BÁO CÁO THỰC HÀNH CẤU TRÚC DỮ LIỆU VÀ GIẢI THUẬT
 ## ĐIỀU PHỐI GIAO ĐƠN TRONG KHUÔN VIÊN TRƯỜNG BẰNG JULIA
 
+- **Họ và tên:** `Nguyễn Hoàng Nam`
 - **Mã số sinh viên (MSSV):** `N24DCDT051`
+- **Lớp:** `D24CQDT01-N`
 - **Ngày thực hành:** 09/10/2026
 - **Ngôn ngữ & Môi trường:** Julia 1.12.7 (Base, không dùng thư viện ngoài)
 - **Tập dữ liệu chuẩn:** `MINI001` (Ngân sách thời gian $B = 8$)

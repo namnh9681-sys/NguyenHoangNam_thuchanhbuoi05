@@ -36,7 +36,7 @@ def fill_worksheet():
     t1.rows[3].cells[4].text = '0'
 
     # Fill paragraphs
-    doc.paragraphs[1].text = "Họ tên: Sinh viên thực hành          MSSV: N24DCDT051          Lớp: D24CQDT01-N"
+    doc.paragraphs[1].text = "Họ tên: Nguyễn Hoàng Nam          MSSV: N24DCDT051          Lớp: D24CQDT01-N"
     doc.paragraphs[2].text = "GitHub: https://github.com/sinhvien/Bo_Thuc_hanh_Julia_2026_10_09    Commit SHA: 587283c"
 
     # P5: 1. Mo ta luong ung dung
@@ -165,7 +165,8 @@ def fill_worksheet():
     )
 
     doc.save('Phieu_thuc_hanh_CTDL_GT_2026_10_09_Da_dien.docx')
-    print("Done generating Phieu_thuc_hanh_CTDL_GT_2026_10_09_Da_dien.docx")
+    doc.save('NguyenHoangNam_thuchanhbuoi05.docx')
+    print("Done generating Phieu_thuc_hanh_CTDL_GT_2026_10_09_Da_dien.docx and NguyenHoangNam_thuchanhbuoi05.docx")
 
 if __name__ == '__main__':
     fill_worksheet()
