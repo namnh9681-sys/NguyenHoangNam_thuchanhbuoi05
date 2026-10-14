@@ -37,7 +37,7 @@ def fill_worksheet():
 
     # Fill paragraphs
     doc.paragraphs[1].text = "Họ tên: Nguyễn Hoàng Nam          MSSV: N24DCDT051          Lớp: D24CQDT01-N"
-    doc.paragraphs[2].text = "GitHub: https://github.com/namnh9681-sys/NguyenHoangNam_thuchanhbuoi05    Commit SHA: 10f6f8fe31b9cb07e00673ba7de6136c42e0856c"
+    doc.paragraphs[2].text = "GitHub: https://github.com/namnh9681-sys/NguyenHoangNam_thuchanhbuoi05    Commit SHA: cdc7de1 (cdc7de1700e03dcf24f7ce5b8cc6dd1d698fe3f6)"
 
     # P5: 1. Mo ta luong ung dung
     doc.paragraphs[5].text = (
