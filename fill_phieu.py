@@ -37,7 +37,7 @@ def fill_worksheet():
 
     # Fill paragraphs
     doc.paragraphs[1].text = "Họ tên: Nguyễn Hoàng Nam          MSSV: N24DCDT051          Lớp: D24CQDT01-N"
-    doc.paragraphs[2].text = "GitHub: https://github.com/sinhvien/Bo_Thuc_hanh_Julia_2026_10_09    Commit SHA: 587283c"
+    doc.paragraphs[2].text = "GitHub: https://github.com/namnh9681-sys/NguyenHoangNam_thuchanhbuoi05    Commit SHA: 10f6f8fe31b9cb07e00673ba7de6136c42e0856c"
 
     # P5: 1. Mo ta luong ung dung
     doc.paragraphs[5].text = (
@@ -121,7 +121,8 @@ def fill_worksheet():
 
     # P29, P30, P31: 6. Dau ra va nhan xet
     doc.paragraphs[29].text = (
-        "Đường dẫn CSV kết quả: data/MINI001/ket_qua.csv (và data/N24DCDT051/ket_qua.csv)        Link notebook: TH_2026_10_09_Pluto.jl"
+        "Đường dẫn CSV kết quả: data/MINI001/ket_qua.csv (và data/N24DCDT051/ket_qua.csv)        "
+        "Link notebook: https://github.com/namnh9681-sys/NguyenHoangNam_thuchanhbuoi05/blob/main/TH_2026_10_09_Pluto.jl"
     )
     doc.paragraphs[30].text = (
         "Lỗi đã phát hiện và cách sửa: (1) Tránh nhầm chỉ số Julia 1-based trong DP: ô F(i, b) phải lưu ở table[i+1, b+1]; "
